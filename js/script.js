@@ -19,7 +19,7 @@ var lesson11 = {
 
     // Create main scene
     this.scene = new THREE.Scene();
-    this.scene.fog = new THREE.FogExp2(0xc8e0ff, 0.0003);
+    //this.scene.fog = new THREE.FogExp2(0xc8e0ff, 0.0003);
 
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
 
@@ -27,7 +27,7 @@ var lesson11 = {
     var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 1, FAR = 1000;
     this.camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
     this.scene.add(this.camera);
-    this.camera.position.set(50, 0, 100);
+    this.camera.position.set(0, 0, 100);
     //this.camera.lookAt(new THREE.Vector3(0,0,0));
 
     // Prepare webgl renderer
@@ -62,13 +62,14 @@ var lesson11 = {
     this.container.appendChild( this.stats.domElement );
 */
     // Add lights
-    this.scene.add( new THREE.AmbientLight(0xFFFFFF));
+    this.scene.add( new THREE.AmbientLight(0xffffff));
+    //this.scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 ) );
 
     // Load Json model
-    this.loadJsonModel();
+    //this.loadJsonModel();
 
     // Load Dae model
-    // this.loadDaeModel();
+    this.loadDaeModel();
   },
   loadJsonModel: function() {
 
@@ -107,7 +108,7 @@ var lesson11 = {
     // Prepare ColladaLoader
     var daeLoader = new THREE.ColladaLoader();
     daeLoader.options.convertUpAxis = true;
-    daeLoader.load('models/robot.dae', function(collada) {
+    daeLoader.load('models/ironman.dae', function(collada) {
 
       var modelMesh = collada.scene;
 
@@ -120,9 +121,10 @@ var lesson11 = {
       } );
 
       // Set position and scale
-      var scale = 2.5;
-      modelMesh.position.set(0, -20, 0);
+      var scale = 100;
       modelMesh.scale.set(scale, scale, scale);
+      modelMesh.rotation.set(0, -30 * 0.0174533, 0);
+      modelMesh.position.set(40, -25, 0);
 
       // Add the mesh into scene
       lesson11.scene.add(modelMesh);
