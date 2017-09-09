@@ -10,6 +10,14 @@
  * https://www.script-tutorials.com/
  */
 
+function onDocumentMouseDown(e) {
+   console.log("mouse down")
+}
+
+function onDocumentMouseUp(e) {
+  console.log("mouse up")
+}
+
 var lesson11 = {
   scene: null, camera: null, renderer: null,
   container: null, controls: null,
@@ -40,6 +48,15 @@ var lesson11 = {
     //document.body.appendChild(this.container);
     this.container = document.getElementById("viewport");
     this.container.appendChild(this.renderer.domElement);
+
+    
+       this.container.addEventListener('mousedown', onDocumentMouseDown, false);
+   this.container.addEventListener('mouseup', onDocumentMouseUp, false);
+   //this.container.addEventListener('dblclick', onDocumentMouseDblClick, false);
+   //this.container.addEventListener('mousemove', onMouseMove, false);
+   //this.container.addEventListener('mousewheel', onMouseScroll, false);
+   //this.container.addEventListener('onmousewheel', onMouseScroll, false);
+   //this.container.addEventListener('wheel', onMouseScroll, false);
 
     // Events
     THREEx.WindowResize(this.renderer, this.camera);
@@ -172,3 +189,4 @@ if (window.addEventListener)
 else if (window.attachEvent)
   window.attachEvent('onload', initializeLesson);
 else window.onload = initializeLesson;
+
