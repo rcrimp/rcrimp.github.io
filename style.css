@@ -60,11 +60,12 @@ a {
 
 
 footer {
-   position: absolute;
+   /*position: absolute;*/
    left: 0;
    right: 0;
    bottom: 0;
-   padding: 0em;
+   padding: 1em;
+   margin-top: 1em;
 
    background-color: #303036; 
    color: #777;

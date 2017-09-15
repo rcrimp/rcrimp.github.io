@@ -1,24 +1,4 @@
-/**
- *
- * WebGL With Three.js - Lesson 11 - Animated Objects
- * https://www.script-tutorials.com/webgl-with-three-js-lesson-11/
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * Copyright 2015, Script Tutorials
- * https://www.script-tutorials.com/
- */
-
-function onDocumentMouseDown(e) {
-   console.log("mouse down")
-}
-
-function onDocumentMouseUp(e) {
-  console.log("mouse up")
-}
-
-var lesson11 = {
+var module = {
   scene: null, camera: null, renderer: null,
   container: null, controls: null,
   clock: null, stats: null,
@@ -29,103 +9,62 @@ var lesson11 = {
     this.scene = new THREE.Scene();
     //this.scene.fog = new THREE.FogExp2(0xc8e0ff, 0.0003);
 
-    var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
+    var SCREEN_WIDTH = 500 //window.innerWidth, 
+    var SCREEN_HEIGHT = 500 //window.innerHeight;
 
     // Prepare perspective camera
     var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 1, FAR = 1000;
     this.camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
     this.scene.add(this.camera);
-    this.camera.position.set(0, 0, 100);
-    //this.camera.lookAt(new THREE.Vector3(0,0,0));
+    this.camera.position.set(0, 50, 100);
+    this.camera.lookAt(new THREE.Vector3(0,30,0));
 
     // Prepare webgl renderer
     this.renderer = new THREE.WebGLRenderer({ antialias:false, alpha: true });
     this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-    this.renderer.setClearColor( 0x000000, 0);//this.scene.fog.color);
+    this.renderer.setClearColor( 0x000000, 0);
 
     // Prepare container
-    //this.container = document.createElement('div');
-    //document.body.appendChild(this.container);
     this.container = document.getElementById("viewport");
     this.container.appendChild(this.renderer.domElement);
 
-    
-       this.container.addEventListener('mousedown', onDocumentMouseDown, false);
-   this.container.addEventListener('mouseup', onDocumentMouseUp, false);
-   //this.container.addEventListener('dblclick', onDocumentMouseDblClick, false);
-   //this.container.addEventListener('mousemove', onMouseMove, false);
-   //this.container.addEventListener('mousewheel', onMouseScroll, false);
-   //this.container.addEventListener('onmousewheel', onMouseScroll, false);
-   //this.container.addEventListener('wheel', onMouseScroll, false);
-
     // Events
-    THREEx.WindowResize(this.renderer, this.camera);
+    //THREEx.WindowResize(this.renderer, this.camera);
 
     // Prepare Orbit controls
-    //this.controls = new THREE.OrbitControls(this.camera);
-    //this.controls.target = new THREE.Vector3(0, 0, 0);
-    //this.controls.maxDistance = 150;
+    this.controls = new THREE.OrbitControls(this.camera);
+    this.controls.target = new THREE.Vector3(0, 30, 0);
+    this.controls.update()
+    this.controls.minDistance = 120;
+    this.controls.maxDistance = 120;
+    this.controls.enablePan = false;
+    this.controls.autoRotate = true;
 
     // Prepare clock
     this.clock = new THREE.Clock();
 
-    // Prepare stats
-    /*
-    this.stats = new Stats();
-    this.stats.domElement.style.position = 'absolute';
-    this.stats.domElement.style.left = '50px';
-    this.stats.domElement.style.bottom = '50px';
-    this.stats.domElement.style.zIndex = 1;
-    this.container.appendChild( this.stats.domElement );
-*/
     // Add lights
     this.scene.add( new THREE.AmbientLight(0xffffff));
     //this.scene.add( new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 ) );
 
-    // Load Json model
-    //this.loadJsonModel();
-
-    // Load Dae model
+    // Load model
     this.loadDaeModel();
-  },
-  loadJsonModel: function() {
 
-    // Prepare JSONLoader
-    var jsonLoader = new THREE.JSONLoader();
-    jsonLoader.load('models/girl.json', function(geometry, materials) {
-
-      materials.forEach(function(mat) {
-        mat.skinning = true;
-      });
-
-      // Prepare SkinnedMesh with MeshFaceMaterial (using original texture)
-      var modelMesh = new THREE.SkinnedMesh(
-        geometry, new THREE.MeshFaceMaterial(materials)
-      );
-
-      // Set position and scale
-      var scale = 40;
-      modelMesh.position.set(0, -20, 0);
-      modelMesh.scale.set(scale, scale, scale);
-
-      // Prepare animation
-      var animation = new THREE.Animation(
-        modelMesh, geometry.animations[0],
-        THREE.AnimationHandler.CATMULLROM
-      );
-
-      // Add the mesh and play the animation
-      lesson11.scene.add(modelMesh);
-      animation.play();
-    });
-
+    // load ground
+    /*
+    var geo = new THREE.PlaneBufferGeometry(50, 50, 2, 2);
+    var mat = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
+    var plane = new THREE.Mesh(geo, mat);
+    plane.rotation.set(90 * Math.PI / 180, 0, 20 * Math.PI / 180);
+    this.scene.add(plane);
+    */
   },
   loadDaeModel: function() {
 
     // Prepare ColladaLoader
     var daeLoader = new THREE.ColladaLoader();
     daeLoader.options.convertUpAxis = true;
-    daeLoader.load('models/ironman.dae', function(collada) {
+    daeLoader.load('models/ironman2.dae', function(collada) {
 
       var modelMesh = collada.scene;
 
@@ -138,13 +77,13 @@ var lesson11 = {
       } );
 
       // Set position and scale
-      var scale = 100;
+      var scale = 45;
       modelMesh.scale.set(scale, scale, scale);
-      modelMesh.rotation.set(0, -30 * 0.0174533, 0);
-      modelMesh.position.set(40, -25, 0);
+      modelMesh.rotation.set(90 * Math.PI / 180, 0, 20 * Math.PI / 180);
+      modelMesh.position.set(0, -10, 0);
 
       // Add the mesh into scene
-      lesson11.scene.add(modelMesh);
+      module.scene.add(modelMesh);
     });
 
   }
@@ -159,13 +98,10 @@ function animate() {
 
 // Update controls and stats
 function update() {
-  var delta = lesson11.clock.getDelta();
+  var delta = module.clock.getDelta();
 
-  if (lesson11.controls != null) {
-   lesson11.controls.update(delta);
-  }
-  if (lesson11.stats != null) {
-  lesson11.stats.update();
+  if (module.controls != null) {
+   module.controls.update(delta);
   }
 
   THREE.AnimationHandler.update(delta);
@@ -173,14 +109,14 @@ function update() {
 
 // Render the scene
 function render() {
-  if (lesson11.renderer) {
-    lesson11.renderer.render(lesson11.scene, lesson11.camera);
+  if (module.renderer) {
+    module.renderer.render(module.scene, module.camera);
   }
 }
 
 // Initialize lesson on page load
 function initializeLesson() {
-  lesson11.init();
+  module.init();
   animate();
 }
 

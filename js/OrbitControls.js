@@ -240,7 +240,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 		// restrict radius to be between desired limits
 		radius = Math.max( this.minDistance, Math.min( this.maxDistance, radius ) );
-		
+
 		// move target to panned location
 		this.target.add( pan );
 
