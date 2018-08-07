@@ -1,0 +1,126 @@
+var module = {
+  scene: null, camera: null, renderer: null,
+  container: null, controls: null,
+  clock: null, stats: null,
+  dna_piece_geometry: null, dna_piece_count: null,
+
+  init: function() {
+    // Create main scene
+    this.scene = new THREE.Scene();
+    //this.scene.fog = new THREE.FogExp2(0xc8e0ff, 0.0003);
+
+    var SCREEN_WIDTH = 500 //window.innerWidth, 
+    var SCREEN_HEIGHT = 500 //window.innerHeight;
+
+    // Prepare perspective camera
+    var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 1, FAR = 1000;
+    this.camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+    this.scene.add(this.camera);
+    this.camera.position.set(0, 50, 100);
+    this.camera.lookAt(new THREE.Vector3(0,30,0));
+
+    // Prepare webgl renderer
+    this.renderer = new THREE.WebGLRenderer({ antialias:false, alpha: true });
+    this.renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+    this.renderer.setClearColor( 0x000000, 0);
+
+    // Prepare container
+    this.container = document.getElementById("viewport");
+    this.container.appendChild(this.renderer.domElement);
+
+    // Events
+    //THREEx.WindowResize(this.renderer, this.camera);
+
+    // Prepare Orbit controls
+    
+    this.controls = new THREE.OrbitControls(this.camera);
+    this.controls.target = new THREE.Vector3(0, 30, 0);
+    this.controls.update()
+    this.controls.minDistance = 120;
+    this.controls.maxDistance = 120;
+    this.controls.enablePan = false;
+    this.controls.autoRotate = true;
+    
+
+    // Prepare clock
+    this.clock = new THREE.Clock();
+
+    // Add lights
+    this.scene.add( new THREE.AmbientLight(0x111111));
+    this.scene.add( new THREE.HemisphereLight( 0xffffff, 0x080820, 1 ) );
+
+    // Load model
+    this.loadScene(); 
+  },
+  loadScene: function() {
+    var loader = new THREE.OBJLoader();
+
+    // load base (podium) mesh
+    loader.load('models/DNA_base.obj', function ( object ) {
+      object.children[0].material = new THREE.MeshLambertMaterial( {color: 0x888888} );
+      module.scene.add( object );
+      }
+    );
+
+    // load piece mesh
+    loader.load('models/DNA_piece.obj', function ( object ) {
+      dna_piece_geometry = object.children[0].geometry;// = blue_material;
+    });
+    this.dna_piece_count = 0;
+  },
+  addPiece: function() {
+    var piece = new THREE.Mesh(
+      dna_piece_geometry,
+      new THREE.MeshLambertMaterial( {color: 0xff0000} )
+    );
+
+    var i = this.dna_piece_count;
+    if (i % 2 == 1) {
+      piece.rotation.set(0, (i-1)/2 * -60 * Math.PI / 180, 0);
+      piece.position.set(0, (i-1)/2 * 6.66666, 0);
+    } else {
+      piece.rotation.set(0, (i/2 * -60 + 180) * Math.PI / 180, 0);
+      piece.position.set(0, i/2 * 6.66666, 0);
+    }
+    module.scene.add(piece);
+    this.dna_piece_count += 1;
+  }
+};
+
+// Animate the scene
+function animate() {
+  requestAnimationFrame(animate);
+  render();
+  update();
+}
+
+// Update controls and stats
+function update() {
+  var delta = module.clock.getDelta();
+
+  if (module.controls != null) {
+   module.controls.update(delta);
+  }
+
+  /*THREE.AnimationHandler.update(delta);*/
+}
+
+// Render the scene
+function render() {
+  if (module.renderer) {
+    module.renderer.render(module.scene, module.camera);
+  }
+}
+
+// Initialize lesson on page load
+function initializeLesson() {
+  module.init();
+  animate();
+}
+
+if (window.addEventListener)
+  window.addEventListener('load', initializeLesson, false);
+else if (window.attachEvent)
+  window.attachEvent('onload', initializeLesson);
+else window.onload = initializeLesson;
+
