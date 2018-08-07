@@ -2,7 +2,7 @@ var module = {
   scene: null, camera: null, renderer: null,
   container: null, controls: null,
   clock: null, stats: null,
-  dna_piece_geometry: null, dna_piece_count: null,
+  dna_piece_geometry: null, pieces: null,
 
   init: function() {
     // Create main scene
@@ -32,15 +32,13 @@ var module = {
     //THREEx.WindowResize(this.renderer, this.camera);
 
     // Prepare Orbit controls
-    
     this.controls = new THREE.OrbitControls(this.camera);
     this.controls.target = new THREE.Vector3(0, 30, 0);
     this.controls.update()
     this.controls.minDistance = 120;
-    this.controls.maxDistance = 120;
-    this.controls.enablePan = false;
+    this.controls.maxDistance = 200;
+    this.controls.enablePan = true;
     this.controls.autoRotate = true;
-    
 
     // Prepare clock
     this.clock = new THREE.Clock();
@@ -66,24 +64,26 @@ var module = {
     loader.load('models/DNA_piece.obj', function ( object ) {
       dna_piece_geometry = object.children[0].geometry;// = blue_material;
     });
-    this.dna_piece_count = 0;
+    this.pieces = [];
   },
   addPiece: function() {
     var piece = new THREE.Mesh(
       dna_piece_geometry,
-      new THREE.MeshLambertMaterial( {color: 0xff0000} )
+      new THREE.MeshLambertMaterial( {color: Math.random() * 0xffffff} )
     );
 
-    var i = this.dna_piece_count;
+    var i = this.pieces.length;
+    piece.position.set(0, 200, 0);
     if (i % 2 == 1) {
       piece.rotation.set(0, (i-1)/2 * -60 * Math.PI / 180, 0);
-      piece.position.set(0, (i-1)/2 * 6.66666, 0);
+      piece.target_position = new THREE.Vector3(0, (i-1)/2 * 6.66666, 0);
     } else {
       piece.rotation.set(0, (i/2 * -60 + 180) * Math.PI / 180, 0);
-      piece.position.set(0, i/2 * 6.66666, 0);
+      piece.target_position = new THREE.Vector3(0, i/2 * 6.66666, 0);
     }
     module.scene.add(piece);
-    this.dna_piece_count += 1;
+    console.log(piece);
+    this.pieces.push(piece);
   }
 };
 
@@ -103,6 +103,10 @@ function update() {
   }
 
   /*THREE.AnimationHandler.update(delta);*/
+  for (var i = 0, il = module.pieces.length; i < il; i++) {
+    piece = module.pieces[i];
+    piece.position = piece.position.lerp(piece.target_position, 0.1);
+  }
 }
 
 // Render the scene
