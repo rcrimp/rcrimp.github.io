@@ -14,7 +14,7 @@ html {
 }
 
 h1 {
-   padding-top: 50px;
+   padding-top: 100px;
    margin: -45px auto 0 auto;
 
    font-size: 40px;
@@ -27,7 +27,6 @@ h2 {
     margin-bottom: 0.5em;
     /* color: #4a7bcc */
 }
-
 .center {
    display:block;
    margin: 0.5em auto 0.5em auto;
