@@ -8,7 +8,7 @@
 \usepackage{multicol}
 \usepackage[export]{adjustbox}
 \usepackage{fontawesome}
-
+\usepackage{tabularx} % in the preamble
 
 % document settings
 \defaultfontfeatures{Mapping=tex-text}
@@ -29,7 +29,7 @@
 % {\faSteamSquare} PhyterJet
 }
 \begin{document}
-
+\small
 
 
 	%----------------------------------------------------------------------------------------
@@ -46,88 +46,143 @@
    % \includegraphics[width=.4\textwidth]{profile.png}
    % \end{minipage}
 
+
+	%----------------------------------------------------------------------------------------
+	%	ABOUT ME
+	%----------------------------------------------------------------------------------------
+
+	\vspace{-1em}
+	\begin{center}
+		My dream career is to be a Technical Artist. \\
+  		I collect Rubik's style twisty puzzles, \\
+  		because I like solving problems. \\
+	\end{center}
+	\vspace{-1em}
+
     %----------------------------------------------------------------------------------------
 	%	EDUCATION
 	%----------------------------------------------------------------------------------------
-	\section{Education}
-    
+	
 	\leftskip2em
-
-    \begin{tabular*}{1.0\linewidth}{ll@{\extracolsep{\fill}}r@{\hspace{2em}}}
-        \textbf{PGDipSci} & Computer Science, awarded with Distinction & 2016 \\
-    	\textbf{BSc} & Major: Computer Science, Minor: Mathematics & 2013 --- 2015  \\
-  	\end{tabular*}
+    
+    \section{Education}
+    
+    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6.5ex}} l r }
+    	MSc 	& Information Retrieval \textit{in progress} & \hspace{14.5ex} 2017 --- \\
+    	PGDipSci 	& Computer Science, awarded with Distinction & \hfill 2016\\
+    	BSc & Major: Computer Science, Minor: Mathematics & \hfill 2013 --- 2015\\
+	\end{tabular}
     
     %----------------------------------------------------------------------------------------
 	%	SKILLS
 	%----------------------------------------------------------------------------------------
-	 \section {Achievements} 
-    
-Scholarship for Academic Achievement in Science (University of Otago)   \hfill 2014 \\
-ACM ICPC Programming Contest regional finals (UNSW, Sydney) \hfill 2014
+	 
+     % \section {Achievements}  
+	 % Scholarship for Academic Achievement in Science (University of Otago)   \hfill 2014 \\
+	 % ACM ICPC Programming Contest regional finals (UNSW, Sydney) \hfill 2014
      
-     \section{Technical Skills}
+    \section{Technical Skills}
       
-	\begin{tabular}{ @{} >{\bfseries}l @{\hspace{4ex}} l }
-    	Proficient & C, C\#, Java, Swift, Python, JavaScript\\
-    	Familiar & C++, Haskell, SQL, PHP, GLSL, \LaTeX \\
-    	Tools & vim, git, docker, Xcode, Visual Studio, Unity \\
-        Libraries & opencv, opengl, nltk, three.js, Eigen, SDL \\
+	\begin{tabular}{ @{} >{\bfseries}l @{\hspace{4ex}} lllllll }
+    	Proficient 	& C & C\# & Java & Swift & Python & HTML & JavaScript \\
+    	Competent 	& C\textsuperscript{++} & SQL & PHP & GLSL & Haskell & \LaTeX & CSS \\
+    	Tools / Libs & git & SDL & nltk & opencv & three.js & blender & docker \\
 	\end{tabular}
     
-    
     %----------------------------------------------------------------------------------------
+	%	EMPLOYMENT
+	%----------------------------------------------------------------------------------------
+    \section {Employment}
+    \noindent	
+	\textbf{Game Developer} \hfill 2017
+    
+    Redfox Game Studio, Auckland 
+    
+	Lead Unity programmer and technical artist for a soon to be released Steam title.\\
+    
+    \noindent	
+	\textbf{iOS Developer} \hfill 2016
+    
+    MixBit, Dunedin 
+    
+	Worked in a small team developing AV utilities in Swift for an iOS application. \\
+    
+    \noindent	
+	\textbf{Teaching (Lecturer \& Tutor)} \hfill 2014 ---
+    
+    University of Otago, Dunedin 
+    
+	Learned effective communication skills, working with classes and individual students.
+    
+    %---------------------------------------------------------------------------------------
 	%	WORK EXPERIENCE
 	%----------------------------------------------------------------------------------------
-	\section{Research Experience}
     
-    \begingroup\leftskip2em
-   
-   	\noindent
-    \textbf{Research Assistant} --- Anatomy Department, University of Otago \hfill 2017 \hfill \\
-	Developed software for annotating anatomical specimens, to be used for teaching.\\
-    Supervised by Dr. Yusuf Cakmak.\\
-    
-    \noindent
-    \textbf{Research Project} --- CompSci Department, University of Otago \hfill 2015 \hfill \\
-	Developed virtual-reality software for chronic stroke rehabilitation.\\
-    Supervised by Dr. Steven Mills and Dr. Holger Regenbrecht.\\
-    
-    \noindent
-    \textbf{Summer Research Scholarship} --- CompSci Dept, University of Otago \hfill 2015 \hfill \\
-	Designed and developed software for a lenticular auto-stereoscopic 3D display.\\
-    Supervised by Dr. Geoff Wyvill.\\
-    
-    \noindent
-    \textbf{Research Assistant} --- CompSci Department, University of Otago \hfill 2014 \hfill \\
-	Determining the time complexity of network scheduling algorithms.\\
-    Supervised by Dr.\ Haibo Zhang.\\
-    
-    \endgroup
-    
+    \iffalse
     \section{Teaching Experience}
     \noindent	
-    \textbf{Tutor} --- CompSci Dept, University of Otago \hfill 2017 --- \\
-	Teaching undergraduate tutorials (lecture style), for 20-30 students. \\
+    \textbf{Lecturer} --- CompSci Dept, University of Otago \hfill 2017 --- now \\
+	Teaching undergraduate classes to 30-50 students. \\
     
     \noindent	
     \textbf{Tutor} --- Disability Information \& Support, University of Otago  \hfill 2015 --- \\
-	One on one teaching on subject specific material. Computer science, maths, stats. \\
+	One on one teaching on subject specific material. Computer Science, Maths, Stats. \\
     
 	\noindent	
     \textbf{Demonstrator} --- 	CompSci Dept, University of Otago \hfill 2014 --- \\
 	Supervising CS undergrad computer labs, and assisting the students with their work. \\
+    \fi
     
-    \section {Industry Employment}
-    \noindent	
-	\textbf{Intern iOS Developer} \hfill 2015 --- 2016 \\
-	MixBit - Dunedin Office \\
-	Worked in a small team developing iOS applications in swift. \\
+    %----------------------------------------------------------------------------------------
+	%	RESEARCH
+	%----------------------------------------------------------------------------------------
+    
+	\section{Research}
+    
+    \noindent
+    \textbf{Academic Publication} \hfill 2017 \hfill
+    
+    Proceedings of the 22nd Australasian Document Computing Symposium
+    
+    Automatic Term Reweighting for Query Expansion
+    
+    Authors: R. Crimp, A. Trotman \\
+    
+   	\noindent
+    \textbf{Research Assistant} \hfill 2017 \hfill
+    
+	Developed software for annotating anatomical specimens, to be used for teaching.
+    
+    Supervisors: Y. Cakmak, S. Zollman \\
+    
+    \noindent
+    \textbf{Research Project} \hfill 2015 \hfill
+    
+	Developed virtual-reality software for chronic stroke rehabilitation.
+    
+    Supervisors: S. Mills, H. Regenbrecht, T. Langlotz\\
+    
+    \noindent
+    \textbf{Summer Research Scholarship} \hfill 2015 \hfill
+    
+	Designed and developed software for a lenticular auto-stereoscopic 3D display.
+    
+    Supervisor: G. Wyvill\\
+    
+    \noindent
+    \textbf{Research Assistant} \hfill 2014 \hfill
+    
+	Determining the time complexity of network scheduling algorithms.
+    
+    Supervisors: H. Zhang, Y. Chen
+    %\endgroup
     
     %----------------------------------------------------------------------------------------
 	%	ACHIEVEMENTS
 	%----------------------------------------------------------------------------------------
-	\section{Projects \& Experience}
+	
+    \iffalse
+    \section{Projects \& Experience}
     
     \noindent        
 	Developed virtual-reality software for chronic stroke rehabilitation.\\
@@ -143,7 +198,7 @@ ACM ICPC Programming Contest regional finals (UNSW, Sydney) \hfill 2014
 
 	\noindent
 	Other personal projects include CHIP-8 emulator, path tracer, raycaster, triangle rasterizer, and several games made with Unity/C\# and opengl/C.\\
-
+\fi
 	%\noindent
 	%Competed in the 2014 ACM ICPC programming contest regional finals in Sydney.\\
     
