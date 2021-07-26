@@ -16,24 +16,13 @@ const HomeTwo = () => {
   return (
     <div className="home-four">
       <Header />
-      {/* End Header Section */}
-
       <Slider />
-      {/* End Slider Section */}
-
       <About />
-      {/* End About Section */}
-
       <Portfolio />
-      {/* End Portfolio Section */}
+      {/* <Skills /> */}
+      {/* <Video /> */}
 
-      <Skills />
-      {/* End Skills Section */}
-
-      <Video />
-      {/* End Video Section */}
-
-      <div className="shane_tm_section">
+      {/* <div className="shane_tm_section">
         <div className="shane_tm_partners">
           <div className="container">
             <div className="partners_inner">
@@ -41,10 +30,10 @@ const HomeTwo = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End shane_tm_partners */}
 
-      <div className="shane_tm_section">
+      {/* <div className="shane_tm_section">
         <div className="shane_tm_testimonials">
           <div className="container">
             <div className="testimonials_inner">
@@ -64,11 +53,13 @@ const HomeTwo = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End  shane_tm_testimonials*/}
 
-      <News />
+      {/* <News /> */}
       {/* End Blog Section */}
+
+      {/* <Video /> */}
 
       <CallToAction />
       {/* End CallToAction */}

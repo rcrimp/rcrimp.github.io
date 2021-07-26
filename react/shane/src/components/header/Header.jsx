@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Scrollspy from "react-scrollspy";
 import Social from "../SocialTwo";
 import { NavLink } from "react-router-dom";
+// import Social from "../SocialTwo.jsx";
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -23,15 +24,16 @@ const Header = () => {
       <div className="shane_tm_topbar">
         <div className={navbar ? "topbar_inner opened" : "topbar_inner"}>
           <div className="logo">
-            <NavLink to="/">
+            <Social />
+            {/* <NavLink to="/">
               <img src="/img/logo/new/dark.png" alt="partners brand" />
-            </NavLink>
+            </NavLink> */}
           </div>
           {/* End logo */}
           <div className="menu">
             <Scrollspy
               className="anchor_nav"
-              items={["home", "about", "portfolio", "news", "contact"]}
+              items={["home", "about", "portfolio", "contact"]}
               currentClassName="current"
               offset={-200}
             >
@@ -44,13 +46,13 @@ const Header = () => {
               <li>
                 <a href="#portfolio">Portfolio</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#news">News</a>
-              </li>
+              </li> */}
               <li>
                 <a href="#contact">Contact</a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   className="white-fill-bg btn-outline btn_sm"
                   target="_blank"
@@ -59,7 +61,7 @@ const Header = () => {
                 >
                   Buy Now
                 </a>
-              </li>
+              </li> */}
             </Scrollspy>
           </div>
           {/* End menu */}
@@ -73,9 +75,9 @@ const Header = () => {
           <div className="container bigger">
             <div className="topbar_in">
               <div className="logo">
-                <NavLink to="/">
+                {/* <NavLink to="/">
                   <img src="/img/logo/new/dark.png" alt="partners brand" />
-                </NavLink>
+                </NavLink> */}
               </div>
               {/* End logo */}
               <div className="my_trigger" onClick={handleClick}>
@@ -117,17 +119,17 @@ const Header = () => {
                     Portfolio
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#news" onClick={handleClick}>
                     News
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#contact" onClick={handleClick}>
                     Contact
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     className="white-fill-bg btn-outline btn_sm"
                     target="_blank"
@@ -136,7 +138,7 @@ const Header = () => {
                   >
                     Buy Now
                   </a>
-                </li>
+                </li> */}
               </ul>
               <div className="social-menu">
                 <Social />

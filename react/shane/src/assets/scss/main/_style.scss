@@ -1103,7 +1103,7 @@ ul.react-tabs__tab-list {
   float: left;
   background: rgba(255, 255, 255, 0.6);
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   bottom: 0;
   padding: 10px 15px;
   display: flex;
@@ -1276,14 +1276,13 @@ ul.react-tabs__tab-list {
 }
 .shane_tm_business_video .content {
   width: 100%;
-  height: auto;
+  height: 339px;
   clear: both;
   float: left;
   position: relative;
   margin: 0px auto;
   z-index: 2;
   text-align: center;
-  padding: 150px 0px;
   @media screen and (max-width: 992px) {
     padding: 75px 15px;
   }
@@ -1294,10 +1293,11 @@ ul.react-tabs__tab-list {
   display: block;
   position: relative;
   left: 50%;
+  top: 37%;
   transform: translateX(-50%);
   border-radius: 100%;
   background-color: #fff;
-  margin-bottom: 45px;
+  // margin-bottom: 45px;
   cursor: pointer;
   transition: all 1s cubic-bezier(0, 0, 0.2, 1);
   @media screen and (max-width: 992px) {
@@ -2599,7 +2599,7 @@ body.dark .shane_tm_settings .cursor li .svg,
 }
 .shane_tm_intro .hero .content {
   position: absolute;
-  z-index: 2;
+  z-index: 5;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

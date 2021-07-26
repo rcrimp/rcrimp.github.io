@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import ModalVideo from "react-modal-video";
 import Reveal from "react-reveal/Reveal";
 
-const Video = () => {
+const Video = (props) => {
+  const bgUrl = props.bgUrl;
+  console.log(bgUrl);
+
   const [isOpen, setOpen] = useState(false);
   return (
     <div className="shane_tm_section">
@@ -12,7 +15,7 @@ const Video = () => {
             className="image jarallax"
             style={{
               backgroundImage: `url(${
-                process.env.PUBLIC_URL + "img/video/1.jpg"
+                process.env.PUBLIC_URL + bgUrl
               })`,
             }}
           ></div>
@@ -25,22 +28,12 @@ const Video = () => {
             channel="youtube"
             autoplay
             isOpen={isOpen}
-            videoId="ZOoVOfieAF8"
+            videoId={props.videoId}
             onClose={() => setOpen(false)}
           />
 
           <span className="rounded" onClick={() => setOpen(true)}></span>
-          <Reveal effect="fadeInUp">
-            <h3 className="text">
-              I am delivering beautiful digital products for my clients
-            </h3>
-          </Reveal>
           <div className="shane_tm_video_button">
-            <Reveal effect="fadeInUp">
-              <button className="popup-youtube" onClick={() => setOpen(true)}>
-                Watch Video
-              </button>
-            </Reveal>
           </div>
         </div>
         {/* End .content */}

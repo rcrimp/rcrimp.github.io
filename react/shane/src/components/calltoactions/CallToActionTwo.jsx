@@ -24,9 +24,9 @@ const CallToActionTwo = () => {
           })`,
         }}
       >
-        <div className="shape">
+        {/* <div className="shape">
           <img className="svg" src="/img/svg/paper.svg" alt="partners brand" />
-        </div>
+        </div> */}
         {/* End shape */}
 
         <div className="background" id="talk">
@@ -38,13 +38,13 @@ const CallToActionTwo = () => {
         <div className="talk_inner">
           <Reveal effect="fadeInUp">
             <div className="text">
-              <h3>Let's work together!</h3>
+              <h3>Let's talk</h3>
             </div>
           </Reveal>
           <Reveal effect="fadeInUp">
             <div className="button">
               <button className="white-fill-bg" onClick={toggleModalOne}>
-                Make an enquiry
+                Contact Me
               </button>
             </div>
           </Reveal>
@@ -98,7 +98,7 @@ const CallToActionTwo = () => {
                         src="img/svg/location.svg"
                         alt="location"
                       />
-                      <p>Brook 103, 90021 New York, USA</p>
+                      <p>19 Baldwin St, Dunedin, 9010</p>
                     </div>
                   </li>
                   {/* End silgle address */}
@@ -111,7 +111,7 @@ const CallToActionTwo = () => {
                         alt="phone"
                       />
                       <p>
-                        <a href="tel:+77 033 442 55 57">+77 033 442 55 57</a>
+                        <a href="tel:+65 022 165 2992">+64 022 165 2992</a>
                       </p>
                     </div>
                   </li>

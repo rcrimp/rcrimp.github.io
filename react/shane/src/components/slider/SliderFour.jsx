@@ -1,5 +1,6 @@
 import React from "react";
 import TextLoop from "react-text-loop";
+import Social from "../SocialTwo.jsx";
 
 const Slider = () => {
   return (
@@ -10,7 +11,7 @@ const Slider = () => {
             className="image"
             style={{
               backgroundImage: `url(${
-                process.env.PUBLIC_URL + "img/slider/3.jpg"
+                process.env.PUBLIC_URL + "img/slider/4.jpg"
               })`,
             }}
           ></div>
@@ -22,32 +23,37 @@ const Slider = () => {
             <div className="name_wrap">
               <h3>
                 <span>
-                  Bostami
+                  Reuben Crimp
                   <br />
                 </span>{" "}
-                <TextLoop>
+                {/* <span className="overlay_effect"></span> */}
+                <TextLoop interval={1000}>
+                  <span className="loop-text">Stand-up Comedian</span>
+                  <span className="loop-text">Software Engineer</span>
                   <span className="loop-text">Web Developer</span>
-                  <span className="loop-text"> UI/UX Designer.</span>
-                  <span className="loop-text"> Content Creator.</span>
+                  <span className="loop-text">Technical Artist</span>
+                  <span className="loop-text">Comedy Producer</span>
+                  
                 </TextLoop>{" "}
-                <span className="overlay_effect"></span>
+                {/* <span className="overlay_effect"></span> */}
               </h3>
             </div>
             {/* End title */}
 
             <div className="job_wrap">
               <span className="job">
-                based in USA.
-                <span className="overlay_effect"></span>
+                Dunedin, NZ
+                {/* <span className="overlay_effect"></span> */}
               </span>
             </div>
+            {/* <Social /> */}
+            <br />
             {/* End designation */}
             <a
               href="#portfolio"
               className="white-fill-bg btn-outline btn-medium"
             >
               SEE PORTFOLIO
-              <span className="overlay_effect"></span>
             </a>
           </div>
           {/* End content */}

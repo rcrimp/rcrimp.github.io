@@ -10,13 +10,11 @@ const Footer = () => {
               <p>
                 &copy; {new Date().getFullYear()} by{" "}
                 <a
-                  href="https://themeforest.net/user/ib-themes"
-                  target="_blank"
+                  href="https://www.reubencrimp.com"
                   rel="noreferrer"
                 >
-                  ib-themes
-                </a>
-                . All rights reserved.
+                  Reuben Crimp
+                </a>.
               </p>
             </div>
             {/* End inner */}

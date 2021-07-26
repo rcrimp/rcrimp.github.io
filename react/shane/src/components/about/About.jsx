@@ -16,7 +16,7 @@ const About = () => {
                       className="main"
                       style={{
                         backgroundImage: `url(${
-                          process.env.PUBLIC_URL + "img/about/1.jpg"
+                          process.env.PUBLIC_URL + "img/about/4.jpg"
                         })`,
                       }}
                     ></div>
@@ -29,22 +29,17 @@ const About = () => {
               <div className="right">
                 <Reveal effect="fadeInLeft">
                   <div className="shane_tm_title">
-                    <span>About Me</span>
-                    <h3>Creative Independent Web Developer based in USA</h3>
+                    <h3>About Me</h3>
                   </div>
                   <div className="text">
                     <p>
-                      I'm web designer, and I'm very passionate and dedicated to
-                      my work. With 20 years experience as a professional web
-                      developer, I have acquired the skills and knowledge
-                      necessary to make your project a success. I enjoy every
-                      step of the design process, from discussion and
-                      collaboration.
+                      Something about creativity and tech-art.
+                      I obtained a Masters degree in Information Retrieval because I wanted to work for Google... but now I'd rather leave my soul uncorrupted.
                     </p>
                   </div>
                   <div className="shane_tm_button">
-                    <a href="img/resume/resume.jpg" download>
-                      Download CV
+                    <a href="Reuben_Crimp_CV.pdf" download>
+                      Technical Resume
                     </a>
                   </div>
                 </Reveal>
