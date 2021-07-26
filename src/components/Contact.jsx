@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import emailjs from 'emailjs-com';
+import apiKey from "./emailkey.js";
 
 const Contact = () => {
   const {
@@ -9,8 +11,15 @@ const Contact = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
+    emailjs.send(apiKey.SERVICE_ID ,apiKey.TEMPLATE_ID , data, apiKey.USER_ID)
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+    }, (err) => {
+      console.log('FAILED...', err);
+    });
     e.target.reset();
-    console("Message submited: " + JSON.stringify(data));
+    console.log("Message submited: " + JSON.stringify(data));
+    
   };
 
   return (
@@ -52,7 +61,7 @@ const Contact = () => {
 
             <li>
               <textarea
-                {...register("subject", { required: true })}
+                {...register("message", { required: true })}
                 placeholder="Message"
               ></textarea>
               {errors.subject && <span>Subject is required.</span>}
