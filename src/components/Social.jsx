@@ -10,6 +10,7 @@ const SocialShare = [
     link: "https://www.instagram.com/reuben_crisp/",
   },
   { iconName: "linkedin", link: "https://www.linkedin.com/in/reuben-crimp-18920592/" },
+  { iconName: "email", link: "mailto:reubencrimp@gmail.com" },
 ];
 const Social = () => {
   return (
