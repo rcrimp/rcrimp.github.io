@@ -13,12 +13,12 @@ const Contact = () => {
   const onSubmit = (data, e) => {
     emailjs.send(apiKey.SERVICE_ID ,apiKey.TEMPLATE_ID , data, apiKey.USER_ID)
     .then((response) => {
-      console.log('SUCCESS!', response.status, response.text);
+      // console.log('SUCCESS!', response.status, response.text);
     }, (err) => {
       console.log('FAILED...', err);
     });
     e.target.reset();
-    console.log("Message submited: " + JSON.stringify(data));
+    // console.log("Message submited: " + JSON.stringify(data));
     
   };
 
