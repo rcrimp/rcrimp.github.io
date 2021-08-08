@@ -33,7 +33,7 @@ const Header = () => {
           <div className="menu">
             <Scrollspy
               className="anchor_nav"
-              items={["home", "about", "portfolio", "contact"]}
+              items={["home", "about", "portfolio", "comedy", "contact"]}
               currentClassName="current"
               offset={-200}
             >
@@ -46,9 +46,9 @@ const Header = () => {
               <li>
                 <a href="#portfolio">Portfolio</a>
               </li>
-              {/* <li>
-                <a href="#news">News</a>
-              </li> */}
+              <li>
+                <a href="#comedy">Comedy</a>
+              </li>
               <li>
                 <a href="#contact">Contact</a>
               </li>

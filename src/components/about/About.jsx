@@ -33,11 +33,26 @@ const About = () => {
                   </div>
                   <div className="text">
                     <p>
-                      Something about creativity and tech-art.
-                      I obtained a Masters degree in Information Retrieval because I wanted to work for Google... but now I'd rather leave my soul uncorrupted.
-                    </p>
+                      I'm passionate about creativity and creative problem solving.
+											I have a BSc in Computer Science, MSc in Information Retrieval, and two relevant publications.
+											My employment history ranges from game development to data science.
+										</p>
+										<br />
+                  {/* </div>
+                  
+									<div className="text"> */}
+                    <p>
+										In 2018 I founded <a href="http://www.dunedincomedy.co.nz/">Dunedin Comedy</a>, an organisation to produce comedy, from open-mics to charity benefits.
+										My ambition is to provide stage opportunities for rising talent and to nurture the local comedy community to be inclusive, welcoming, and safe for all people.
+										
+										</p>
                   </div>
-                  <div className="shane_tm_button">
+									{/* <div className="shane_tm_button">
+                    <a href="Reuben_Crimp_CV.pdf" download>
+                      Comedy Producer Resume
+                    </a>
+                  </div> */}
+									<div className="shane_tm_button">
                     <a href="Reuben_Crimp_CV.pdf" download>
                       Technical Resume
                     </a>

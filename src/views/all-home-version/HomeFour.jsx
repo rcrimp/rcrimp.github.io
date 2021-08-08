@@ -3,6 +3,7 @@ import Header from "../../components/header/Header";
 import Slider from "../../components/slider/SliderFour";
 import About from "../../components/about/About";
 import Portfolio from "../../components/portfolio/PortfolioTwo";
+import PortfolioComedy from "../../components/portfolio/PortfolioComedy";
 import Skills from "../../components/skills/SkillsTwo";
 import Video from "../../components/video/VideoTwo";
 import Brand from "../../components/Brand";
@@ -19,6 +20,7 @@ const HomeTwo = () => {
       <Slider />
       <About />
       <Portfolio />
+			<PortfolioComedy />
       {/* <Skills /> */}
       {/* <Video /> */}
 
