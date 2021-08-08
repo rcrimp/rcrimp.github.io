@@ -30,12 +30,9 @@ const Slider = () => {
                 <TextLoop interval={1000}>
 									{/* <span className="loop-text">Designer</span> */}
 									<span className="loop-text">Comedian</span>
-									<span className="loop-text">Event Producer</span>
+									<span className="loop-text">Events Producer</span>
                   <span className="loop-text">Software Engineer</span>
-									
-                  
-                  {/* <span className="loop-text">Technical Artist</span> */}
-                  
+                  <span className="loop-text">Technical Artist</span>
                   <span className="loop-text">Information Scientist</span>
                 </TextLoop>{" "}
                 {/* <span className="overlay_effect"></span> */}

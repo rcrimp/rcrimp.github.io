@@ -53,8 +53,8 @@ const About = () => {
                     </a>
                   </div> */}
 									<div className="shane_tm_button">
-                    <a href="Reuben_Crimp_CV.pdf" download>
-                      Technical Resume
+                    <a href="Reuben_Crimp_resume.pdf" download>
+                      Technical Resumé
                     </a>
                   </div>
                 </Reveal>
